@@ -1,0 +1,179 @@
+
+
+           // 又一份经典对齐!!!!!!!!!!!
+
+
+showDialog(
+                                context: context,builder: (_) =>
+                               Row( // 下面2行是设置2个轴的对齐方向,也就是水平和数值方向对齐方法.
+                                 crossAxisAlignment:CrossAxisAlignment.center,
+                                 mainAxisAlignment: MainAxisAlignment.center,
+                                 children: <Widget>[
+
+
+
+                                         Container(width: 333,height: 400,color: Colors.white,  child: Text('dsfa'),),
+
+
+
+
+                                 ],
+                            )
+
+
+                            );
+
+
+
+
+
+                  // 一份Row经典框架!!!!!!!!!!
+// Column也一样.
+
+  Row( // 下面2行是设置2个轴的对齐方向,也就是水平和数值方向对齐方法.
+                                 crossAxisAlignment:CrossAxisAlignment.center,
+                                 mainAxisAlignment: MainAxisAlignment.center,
+                                 children: <Widget>[
+                                         Container(width: 333,height: 400,color: Colors.white,  child: Text('dsfa'),),
+                                 ],
+                            )
+// 经典按钮:
+
+      RaisedButton(child:Text('333')),
+
+
+//        经典字体:!!!!!!!!!!!!!!!!!!!!
+Text(item['title'],
+                                                     style: TextStyle(
+                                                         fontSize: 32,
+                                                         color: Theme.of(context).accentColor, decoration: TextDecoration.none))
+
+
+
+
+
+
+
+
+
+
+// 加减条:
+
+
+
+
+
+
+
+
+
+class NumChangeWidget extends StatefulWidget {
+
+  final double height;
+  int num;
+  final ValueChanged<int> onValueChanged;
+
+  NumChangeWidget({Key key, this.height = 36.0, this.num = 0, this.onValueChanged}) : super(key: key);
+
+  @override
+  _NumChangeWidgetState createState() {
+    return _NumChangeWidgetState();
+  }
+}
+
+class _NumChangeWidgetState extends State<NumChangeWidget> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: widget.height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(2.0)),
+        border: Border.all(color: Colors.grey, width: 0.5),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          GestureDetector(
+            onTap: _minusNum,
+            child: Container(
+              width: 32.0,
+              alignment: Alignment.center,
+              child: Image.asset(AssetsImages.NUM_MINUS), // 设计图
+            ),
+          ),
+          Container(
+            width: 0.5,
+            color: Colors.grey,
+          ),
+          Container(
+            width: 62.0,
+            alignment: Alignment.center,
+            child: Text(widget.num.toString(), maxLines: 1, style: TextStyle(fontSize: 20.0, color: Colors.black),),
+          ),
+          Container(
+            width: 0.5,
+            color: Colors.grey,
+          ),
+          GestureDetector(
+            onTap: _addNum,
+            child: Container(
+              width: 32.0,
+              alignment: Alignment.center,
+              child: Image.asset(AssetsImages.NUM_ADD), // 设计图
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _minusNum() {
+    if (widget.num == 0) {
+      return;
+    }
+
+    setState(() {
+      widget.num -= 1;
+
+      if (widget.onValueChanged != null) {
+        widget.onValueChanged(widget.num);
+      }
+    });
+  }
+
+  void _addNum() {
+    setState(() {
+      widget.num += 1;
+
+      if (widget.onValueChanged != null) {
+        widget.onValueChanged(widget.num);
+      }
+    });
+  }
+}
+
+
+
+// flutter 内置图标:https://www.jianshu.com/p/6e2509f91aa6
+//调用方式如下.
+
+Icon(
+            Icons.build,
+            color: Colors.red,
+            semanticLabel: "user",
+            size: 64.0,
+            textDirection: TextDirection.rtl,
+          ),
+// 加padding的方法:
+
+
+ SizedBox(
+                  width: 1,
+                ),
+
+
+
+// 回退用这个
+
+       Navigator.of(context).pop();

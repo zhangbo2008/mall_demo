@@ -1,0 +1,14 @@
+  Row( // 下面2行是设置2个轴的对齐方向,也就是水平和数值方向对齐方法.
+                                 crossAxisAlignment:CrossAxisAlignment.center,
+                                 mainAxisAlignment: MainAxisAlignment.center,
+                                 children: <Widget>[
+
+
+
+                                         Container(width: 333,height: 400,color: Colors.white,  child: Text('dsfa'),),
+
+
+
+
+                                 ],
+                            )

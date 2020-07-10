@@ -1,0 +1,11 @@
+ Container(
+                                    width: 400,
+                                  height: 400,
+                                  child: Column(
+
+                                    children: <Widget>[
+
+                                      Image.network(item['info']['imgurl'])
+                                   ],
+                                ),
+                                  );
