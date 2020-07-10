@@ -1,0 +1,26 @@
+Consumer<MyModel>( //写一个button
+              builder: (context, model, child) {
+                return FlatButton(
+
+                    color: Colors.tealAccent,
+                    onPressed: model.incrementCounter,
+                    child: Icon(Icons.add));
+              },
+            )
+
+
+Consumer<MyModel>(//再写一个绑定.用来显示数据.
+              builder: (context, model, child) {
+                return Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(20),
+                  alignment: Alignment.center,
+                  color: Colors.lightGreen,
+                  child: Text(
+                    '${model.counter}',
+                  ),
+                );
+              },
+            ),
+
