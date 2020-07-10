@@ -177,3 +177,19 @@ Icon(
 // 回退用这个
 
        Navigator.of(context).pop();
+
+
+
+
+
+
+// 获取任意控件size的方法.
+
+                                                       //获取购物车的宽度:
+
+                                                       var a =floatKey.currentContext.findRenderObject().paintBounds.size;
+                                                       print(a);
+                                                       print('获取到了吗????????????????????????');//获取到了.
+
+
+

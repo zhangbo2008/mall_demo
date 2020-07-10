@@ -119,6 +119,9 @@ class _MyHomePageState extends State<MyHomePage> {
     var h =queryData.size.height;
     Offset temp;
     temp = new Offset(w/2, h/2);
+
+    RenderBox renderBox = floatKey.currentContext.findRenderObject();
+    floatOffset = renderBox.localToGlobal(Offset.zero);
     //GlobalKey itemKey = GlobalKey();
 
 

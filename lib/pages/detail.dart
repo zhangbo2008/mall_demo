@@ -27,8 +27,8 @@ class CatDetailPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    print(item);
-    print('111111111111111111111111111111');
+//    print(item);
+//    print('111111111111111111111111111111');
     return CatDetailPageState(item: item);
   }
 }
@@ -95,10 +95,17 @@ class CatDetailPageState extends State<CatDetailPage> {
 
 
   //引入动画的记忆状态.
+  GlobalKey floatKey3 = GlobalKey();
+  GlobalKey floatKey4 = GlobalKey();
+  GlobalKey floatKey6 = GlobalKey();
+  GlobalKey floatKey7 = GlobalKey();
+  GlobalKey floatKey5 = GlobalKey();
+  GlobalKey floatKey8 = GlobalKey();
+
   GlobalKey floatKey = GlobalKey();
   GlobalKey rootKey = GlobalKey();
   GlobalKey rootKey2 = GlobalKey();
-  Offset floatOffset=new Offset(0, 0);
+  Offset floatOffset;
 Function callback;
   Offset temp;
 
@@ -115,8 +122,8 @@ Function callback;
       RenderBox renderBox = floatKey.currentContext.findRenderObject();
       floatOffset = renderBox
           .localToGlobal(Offset.zero); //floatingActionButton 的坐标. 对应floatkey 的
-      print('dayindongzuo');
-      print(floatOffset);
+//      print('dayindongzuo');
+//      print(floatOffset);
     });
   }
 
@@ -133,7 +140,7 @@ Function callback;
     var pingmuh=h;
     Offset temp;
     temp = new Offset(w/2, h/2);
-
+    var tmp999=NumChangeWidget();
 
 
     return    Scaffold(
@@ -201,6 +208,8 @@ Function callback;
                         key: floatKey,
                         color: Colors.tealAccent,
                         onPressed: () {
+//                          print("获取size!!!!!!!!!!!!!");
+//                          print(context.size.width);
                           Navigator.of(context).push(
                             //路由跳转到.  CatDetailPage(item: item) 这个. //并且用的是page内部跳转.
                               MaterialPageRoute(builder: (ctx) {
@@ -208,7 +217,7 @@ Function callback;
                               })); //要用栈push这个跳转.这个跳转是最应该使用的.符合逻辑,因为推出时候,不按照层次来推出,而是按照浏览记录来退出,符合我们的需求!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //                      Navigator.of(context).pushReplacementNamed("cart");
                         },
-                        child: Icon(Icons.add_shopping_cart));
+                        child: Icon(Icons.add_shopping_cart));// 购物车图标!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                   },
                 ),
                 SizedBox(
@@ -258,7 +267,7 @@ Image.network(item['info']['imgurl']),
                                                  SizedBox(
                                                    width: 20,
                                                  ),
-                                                 NumChangeWidget()
+                                                 tmp999,
 
 
                                                ],
@@ -285,9 +294,26 @@ Image.network(item['info']['imgurl']),
                                                      Navigator.of(context).pop();
 
                                                      setState(() {
+                                                       //获取购物车的宽度:
+
+                                                       var a =floatKey.currentContext.findRenderObject().paintBounds.size;
+//                                                       print(a.width);
+//                                                       print('获取到了吗????????????????????????');//获取到了.
+
+//var b=floatKey3.currentContext.findRenderObject().num;
+//print(b)
+
+
                                                        OverlayEntry entry = OverlayEntry(
                                                            builder: (ctx){
-                                                             return ParabolaAnimateWidget(rootKey2,Offset(pingmuw/2,pingmuh/2),Offset(100,200), Icon(Icons.cancel,color: Colors.greenAccent,),callback,)
+                                                             return ParabolaAnimateWidget(rootKey2,Offset(pingmuw/2,pingmuh/2),floatOffset+Offset(a.width/2-10,0),
+
+
+                                                               Image.network(item['info']['imgurl'],width: 40,)
+
+
+
+                                                               ,callback,)
                                                              ;
                                                            }
                                                        );
@@ -297,10 +323,18 @@ Image.network(item['info']['imgurl']),
                                                        callback = (status){
                                                          if(status == AnimationStatus.completed){
                                                            entry.remove();
-                                                           count+=1;
-                                                           print('shopped');
-                                                           print(count);
+//                                                           count+=1;
+//                                                           print('shopped');
+//                                                           print(count);
 //                          entry?.remove();
+// 把买完的逻辑写到按钮里面.
+//                                                           print(item['title']);
+                                                           print('加入了多少???????');
+                                                           print(count);
+                                                           print(tmp999.num);
+                                                           print('控件的名字里面的数量获取了吗?');// bingo!!!!!!!!!
+                                                           //原来只需要做一个实名制给控件起个名字叫tmp999就能读取里面数据了.
+                                                           model.addproduct(item['title'],tmp999.num);
                                                          }
                                                        };
                                                        Overlay.of(rootKey.currentContext).insert(entry);
@@ -335,10 +369,10 @@ Image.network(item['info']['imgurl']),
 
 
 
-
-
-                            print(item['title']);
-                            model.addproduct(item['title']);
+//
+//
+//                            print(item['title']);
+//                            model.addproduct(item['title'],count);
 
                             //做动画.
                           },
@@ -400,8 +434,8 @@ Image.network(item['info']['imgurl']),
 
 
 
-
 class NumChangeWidget extends StatefulWidget {
+
 
   final double height;
   int num=1;

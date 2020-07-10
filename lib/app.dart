@@ -32,13 +32,13 @@ class MyModel with ChangeNotifier{
   var product = Map<String,int >();
 
 
-   addproduct(String a) {
+   addproduct(String a,int num) {
      print(11111111111111111);
 //     print(product.isEmpty);
     print('你购买了');
     if (!product.containsKey(a))
     {product[a]=0;}
-    {product[a]+=1;}
+    {product[a]+=num;}
 print('你购买了');
 print(a);
 

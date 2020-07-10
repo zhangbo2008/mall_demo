@@ -6,8 +6,9 @@ void main() {
 
 
 
+//下面是经典的购物车抛物线代码.
 
-
+https://github.com/zhangbo2008/throw_cart_demo/blob/master/lib/main.dart
 
 
 # flutter_mall_cart
