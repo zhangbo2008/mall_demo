@@ -302,7 +302,11 @@ Image.network(item['info']['imgurl']),
 
 //var b=floatKey3.currentContext.findRenderObject().num;
 //print(b)
+                                                       if (tmp999.num==0){
+                                            // 如果你啥也没买,那么我就不播放动画了,直接退出!
+                                                         return 9;
 
+                                                       }
 
                                                        OverlayEntry entry = OverlayEntry(
                                                            builder: (ctx){
@@ -334,7 +338,8 @@ Image.network(item['info']['imgurl']),
                                                            print(tmp999.num);
                                                            print('控件的名字里面的数量获取了吗?');// bingo!!!!!!!!!
                                                            //原来只需要做一个实名制给控件起个名字叫tmp999就能读取里面数据了.
-                                                           model.addproduct(item['title'],tmp999.num);
+                                                           if (tmp999.num>0){
+                                                           model.addproduct(item['title'],tmp999.num);}
                                                          }
                                                        };
                                                        Overlay.of(rootKey.currentContext).insert(entry);
