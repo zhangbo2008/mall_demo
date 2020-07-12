@@ -37,6 +37,9 @@ dependencies:
   provider: 4.1.2  # 注意版本要对应好.
   pull_to_refresh: 1.6.0
   auto_size_text : 2.1.0  # 列表下拉刷新.
+  w_popup_menu : 0.3.1 # 长按弹窗
+  oktoast : ^2.1.7
+  flutter_slidable : ^0.5.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

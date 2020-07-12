@@ -6,7 +6,7 @@ import 'package:flutter_mall_cart/views/shopCar.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:provider/provider.dart';
+
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'dart:async';
@@ -310,14 +310,17 @@ Image.network(item['info']['imgurl']),
 
                                                        OverlayEntry entry = OverlayEntry(
                                                            builder: (ctx){
-                                                             return ParabolaAnimateWidget(rootKey2,Offset(pingmuw/2,pingmuh/2),floatOffset+Offset(a.width/2-10,0),
+                                                             var tmp= ParabolaAnimateWidget(rootKey2,Offset(pingmuw/2,pingmuh/2),floatOffset+Offset(a.width/2-10,0),
 
 
                                                                Image.network(item['info']['imgurl'],width: 40,)
 
 
 
-                                                               ,callback,)
+                                                               ,callback);
+
+
+                                                             return tmp;
                                                              ;
                                                            }
                                                        );
@@ -339,7 +342,12 @@ Image.network(item['info']['imgurl']),
                                                            print('控件的名字里面的数量获取了吗?');// bingo!!!!!!!!!
                                                            //原来只需要做一个实名制给控件起个名字叫tmp999就能读取里面数据了.
                                                            if (tmp999.num>0){
-                                                           model.addproduct(item['title'],tmp999.num);}
+                                                           model.addproduct(item['title'],tmp999.num);
+                                                           model.addurls(item['title'],item['info']['imgurl']);
+                                                           print('$model.urls');
+
+
+                                                           }
                                                          }
                                                        };
                                                        Overlay.of(rootKey.currentContext).insert(entry);
@@ -557,7 +565,6 @@ var buttonsize= 30.0;
     });
   }
 }
-
 
 
 

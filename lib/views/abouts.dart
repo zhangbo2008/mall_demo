@@ -36,7 +36,7 @@ class AboutDemoViewsState extends State<AboutDemoViews> {
               fit: BoxFit.cover
             ),
             width: ScreenUtil.getScreenW(context),
-            height: 120,
+            height: 150,
           ),
           _render(),
         ],
@@ -186,7 +186,7 @@ AutoSizeText(
       child: _f,
       // TODO: 高度不能这样算...
       width: ScreenUtil.getScreenW(context),
-      height: ScreenUtil.getScreenH(context) - 280,
+      height: ScreenUtil.getScreenH(context)-400 ,
     );
   }
 

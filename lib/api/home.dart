@@ -31,6 +31,10 @@ class AppHomeApi {
   static getDouBanApi() async {
     try { 
       Response res = await Dio().get("https://api.vvhan.com/api/douban");
+
+
+print(res.data);
+print('3333333333333333333333333');
       Map<String, dynamic> _data = res.data;
       List data = _data['data'];
       return data;

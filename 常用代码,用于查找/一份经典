@@ -29,6 +29,27 @@ showDialog(
 
                   // 一份Row经典框架!!!!!!!!!!
 // Column也一样.
+//路由:
+
+
+  Navigator.of(context).push(
+                            //路由跳转到.  CatDetailPage(item: item) 这个. //并且用的是page内部跳转.
+                              MaterialPageRoute(builder: (ctx) {
+                                return myViews3();
+                              }));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   Row( // 下面2行是设置2个轴的对齐方向,也就是水平和数值方向对齐方法.
                                  crossAxisAlignment:CrossAxisAlignment.center,
@@ -193,3 +214,9 @@ Icon(
 
 
 
+# Consumer 写法: //就是对于provider 的数据进行消费,画图.
+
+
+    Consumer<MyModel>(
+                  builder: (context, model, child) {
+                    return FlatButton(

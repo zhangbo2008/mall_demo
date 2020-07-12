@@ -14,14 +14,14 @@ import 'config/const.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mall_cart/paowuxian.dart';
 
-
+// model 一定要写在最上层,并且只写一个,然后调用时候就保证了引用唯一.
 //数据model也放这里. 因为model是全局变量.所有页面都共享,app是所有的父页面.放这里逻辑就正确.
 class MyModel with ChangeNotifier{
   //                                               <--- MyModel
-  MyModel({this.counter = 0});
-
+  MyModel({this.counter = 0,this.url=''});
+String url;
   int counter = 0;
-
+  var urls = Map<String,String >();
   incrementCounter()  {
 
     counter++;
@@ -46,8 +46,29 @@ print(a);
 
   }
 
+  addurls(String a,String num) {
+    print(11111111111111111);
+//     print(product.isEmpty);
+ urls[a]=num;
+
+    notifyListeners();
+
+  }
 
 
+
+
+
+
+
+
+
+   updateproduct(String a,int num) {  // 购物车里面实时更新数据.
+  product[a]=num;
+
+    notifyListeners();
+
+  }
 
 
 

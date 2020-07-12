@@ -3,7 +3,7 @@ class ConstKey {
    * 启动图片
    */
 //  static const startupImg = "http://www.dmoe.cc/random.php"; //这个网页会随机出现一个图片
-  static  const startupImg = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593580806094&di=0779845d5a89c267be538d67221dc969&imgtype=0&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D1129300532%2C457194105%26fm%3D214%26gp%3D0.jpg"; //这个网页会随机出现一个图片
+  static  const startupImg = "http://img1.gamersky.com/image2017/02/20170208_zh_277_14/image001_S.jpg"; //这个网页会随机出现一个图片
   /**
    * 启动时间
    */
